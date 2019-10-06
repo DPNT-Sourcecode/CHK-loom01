@@ -64,7 +64,7 @@ public class CheckoutSolution {
 			}
 		}
     	
-    	return noOfItems * itemsPriceMap.get(sku);
+    	return sum + noOfItems * itemsPriceMap.get(sku);
     }
     
     public class CountToPrice {
@@ -93,6 +93,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 

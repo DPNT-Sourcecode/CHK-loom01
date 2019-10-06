@@ -16,11 +16,12 @@ public class ChkSolutionTest {
 	
 	@Test
     public void checkout() {
-        assertThat(helloSolution.hello("Tom"), equalTo("Hello, Tom!"));
+        assertThat(checkoutSolution.checkout("ABCD"), equalTo(115));
     }
 	
-	 @Test(expected = RuntimeException.class)
-    public void get_hello_for_wrong_input() {
-    	helloSolution.hello(null);
+	@Test
+    public void checkout_with_special_offer_for_A() {
+        assertThat(checkoutSolution.checkout("AAAABCD"), equalTo(245));
     }
 }
+
