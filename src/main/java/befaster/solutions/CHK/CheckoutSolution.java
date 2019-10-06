@@ -11,6 +11,7 @@ public class CheckoutSolution {
 	
 	private Map<Character, Integer> itemsPriceMap = new HashMap<>();
 	private Map<Character, List<CountToPrice>> specialOffersMap = new HashMap<>();
+	private Map<Character, >
 	
 	public CheckoutSolution() {
 		itemsPriceMap.put('A', 50);
@@ -115,7 +116,34 @@ public class CheckoutSolution {
 			this.price = price;
 		}
     }
+    
+    public class CountToSku {
+    	private int count;
+    	private char sku;
+    	
+    	public CountToSku(int count, char sku) {
+    		this.count = count;
+    		this.sku = sku;
+    	}
+    	
+    	public int getCount() {
+			return count;
+		}
+
+		public void setCount(int count) {
+			this.count = count;
+		}
+
+		public char getSku() {
+			return sku;
+		}
+
+		public void setSku(char sku) {
+			this.sku = sku;
+		}
+    }
 }
+
 
 
 
