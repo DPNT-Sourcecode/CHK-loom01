@@ -75,18 +75,21 @@ public class CheckoutSolution {
     			CountToSku freeItem = specialOffersFreeItemsMap.get(item.getKey());
     			
     			if (items.containsKey(freeItem.sku)) {
-    				int itemsToEliminate = 0;
-    				if (freeItem.sku == item.getKey()) {
-    					
-    				} else {
-    					itemsToEliminate = item.getValue() / freeItem.count;
-    				}
-    				
-    				
+    				int itemsToEliminate = getNoOfItemsToEliminate(item, freeItem);
     				items.put(freeItem.sku, items.get(freeItem.sku) - itemsToEliminate);
     			}
     		}
     	}
+    }
+    
+    private int getNoOfItemsToEliminate(Map.Entry<Character, Integer> item, CountToSku offer) {
+    	if (offer.sku != item.getKey()) {
+			return item.getValue() / offer.count;
+		}
+    	
+    	int itemCount = item.getValue();
+    	
+    	return 100;
     }
     
     private int getPriceForItem(char sku, int noOfItems, int sum) {
@@ -167,3 +170,4 @@ public class CheckoutSolution {
 		}
     }
 }
+
