@@ -37,16 +37,23 @@ public class CheckoutSolution {
     	}
     }
     
-    private Map<Character, Integer> groupItems(char[] itemSkus) {
+    private Map<Character, Integer> groupItems(char[] itemSkus) throws Exception {
     	Map<Character, Integer> skusToCountMap = new HashMap<>();
     	
     	for (char sku : itemSkus) {
     		if (!itemsPriceMap.containsKey(sku)) {
-    			throws new BadAttributeValueExpException(arg0)
+    			throw new Exception("Inexistent item");
+    		}
+    		
+    		if (skusToCountMap.containsKey(sku)) {
+    			skusToCountMap.put(sku, skusToCountMap.get(sku) + 1);
     		}
     	}
+    	
+    	return skusToCountMap;
     }
 }
+
 
 
 
