@@ -102,7 +102,7 @@ public class CheckoutSolution {
     	
     	/* try to apply group offers */
     	for (GroupOffer groupOffer : groupOfferList) {
-	    	if (doesApplyGroupOffer(skusToCountMap, groupOffer)) {
+	    	while (doesApplyGroupOffer(skusToCountMap, groupOffer)) {
 	    		checkoutSum += groupOffer.getPrice();
 	    		applyGroupOffer(skusToCountMap, groupOffer);
 	    	}
@@ -314,4 +314,5 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
