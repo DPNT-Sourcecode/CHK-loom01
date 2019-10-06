@@ -29,11 +29,8 @@ public class CheckoutSolution {
     	}
     	
     	int checkoutSum = 0;
-    	
     	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
-    		if (specialOffersMap.containsKey(skuToCount)) {
-    			
-    		}
+    		checkoutSum += getPriceForItem(skuToCount.getKey(), skuToCount.getValue(), 0);
     	}
     	
     	return checkoutSum;
@@ -61,10 +58,13 @@ public class CheckoutSolution {
     	if (specialOffersMap.containsKey(sku)) {
     		int specialOfferCount = specialOffersMap.get(sku).getCount();
     		int specialOfferPrice = specialOffersMap.get(sku).getCount();
-			if (noOfItems >= specialOfferCount) {
+			
+    		if (noOfItems >= specialOfferCount) {
 				return getPriceForItem(sku, noOfItems - specialOfferCount, sum + specialOfferPrice);
 			}
 		}
+    	
+    	return noOfItems * itemsPriceMap.get(sku);
     }
     
     public class CountToPrice {
@@ -93,6 +93,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
