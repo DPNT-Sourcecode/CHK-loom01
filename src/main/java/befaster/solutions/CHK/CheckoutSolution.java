@@ -72,7 +72,10 @@ public class CheckoutSolution {
     	for (Map.Entry<Character, Integer> item : items.entrySet()) {
     		if (specialOffersFreeItemsMap.containsKey(item.getKey())) {
     			CountToSku freeItem = specialOffersFreeItemsMap.get(item.getKey());
-    			items.put(freeItem.sku, items.get(freeItem.sku) - item.getValue() / freeItem.count);
+    			
+    			if (items.containsKey(freeItem.sku)) {
+    				items.put(freeItem.sku, items.get(freeItem.sku) - item.getValue() / freeItem.count);
+    			}
     		}
     	}
     }
@@ -155,6 +158,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
