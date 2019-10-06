@@ -35,6 +35,9 @@ public class CheckoutSolution {
     	
     	int checkoutSum = 0;
     	
+    	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
+    		
+    	}
     	
     	return checkoutSum;
     }
@@ -57,3 +60,4 @@ public class CheckoutSolution {
     	return skusToCountMap;
     }
 }
+
