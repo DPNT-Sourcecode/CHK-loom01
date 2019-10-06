@@ -109,14 +109,24 @@ public class CheckoutSolution {
     }
     
     private int computeGroupOffers(Map<Character, Integer> skusToCountMap) {
+    	int sum = 0;
+    	
     	Map<Character, Integer> productsCopyMap = new HashMap<>(skusToCountMap);
 		for (GroupOffer groupOffer : groupOfferList) {
 			int totalCountOfProducts = 0;
 			for (char sku : groupOffer.getSkus()) {
+				if (totalCountOfProducts == groupOffer.count) {
+					sum += groupOffer.price;
+					skusToCountMap = productsCopyMap;
+					break;
+				}
+				
 				if (productsCopyMap.get(sku) > 0) {
 					int countOfProductInOffer =
-							productsCopyMap.get(sku) <= groupOffer.count ? productsCopyMap.get(sku) : groupOffer.count;
+							productsCopyMap.get(sku) <= groupOffer.count - totalCountOfProducts 
+							? productsCopyMap.get(sku) : groupOffer.count - totalCountOfProducts;
 					productsCopyMap.put(sku, productsCopyMap.get(sku) - countOfProductInOffer);
+					totalCountOfProducts += countOfProductInOffer;
 				}
 			}
 		}
@@ -283,3 +293,4 @@ public class CheckoutSolution {
 		}
     }
 }
+
