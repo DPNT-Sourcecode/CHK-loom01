@@ -26,18 +26,20 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
     	char[] skusArray = skus.toCharArray();
     	
-    	for (char skuChar : skusArray) {
-    		String sku = Character.toString(skuChar);
-    		
-    		if (!itemsPriceMap.containsKey(sku)) {
-    			return -1;
-    		}
-    		
-    		
+    	Map<Character, Integer> skusToCountMap;
+    	try {
+    		skusToCountMap = groupSkusByCount(skusArray);
+    	} catch (Exception e) {
+    		return -1;
     	}
+    	
+    	int checkoutSum = 0;
+    	
+    	
+    	return checkoutSum;
     }
     
-    private Map<Character, Integer> groupItems(char[] itemSkus) throws Exception {
+    private Map<Character, Integer> groupSkusByCount(char[] itemSkus) throws Exception {
     	Map<Character, Integer> skusToCountMap = new HashMap<>();
     	
     	for (char sku : itemSkus) {
@@ -45,19 +47,13 @@ public class CheckoutSolution {
     			throw new Exception("Inexistent item");
     		}
     		
-    		if (skusToCountMap.containsKey(sku)) {
-    			skusToCountMap.put(sku, skusToCountMap.get(sku) + 1);
+    		if (!skusToCountMap.containsKey(sku)) {
+    			skusToCountMap.put(sku, 0);
     		}
+    		
+    		skusToCountMap.put(sku, skusToCountMap.get(sku) + 1);
     	}
     	
     	return skusToCountMap;
     }
 }
-
-
-
-
-
-
-
-
