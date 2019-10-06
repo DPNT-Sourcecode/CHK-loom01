@@ -124,9 +124,9 @@ public class CheckoutSolution {
 			
 			if (skusToCountMap.get(sku) > 0) {
 				int countToApply =
-						groupOffer.count - totalCountOfProductsApplied <= skusToCountMap.get(sku) ?
-								groupOffer.count - totalCountOfProductsApplied
-								: skusToCountMap.get(sku);
+						groupOffer.count - totalCountOfProductsApplied >= skusToCountMap.get(sku) ?
+								skusToCountMap.get(sku)
+								: groupOffer.count - totalCountOfProductsApplied;
 
 				skusToCountMap.put(sku, skusToCountMap.get(sku) - countToApply);
 				totalCountOfProductsApplied += countToApply;
@@ -310,6 +310,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
