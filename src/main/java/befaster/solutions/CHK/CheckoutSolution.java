@@ -109,7 +109,11 @@ public class CheckoutSolution {
     }
     
     private int computeGroupOffers(Map<Character, Integer> skusToCountMap) {
-		// TODO Auto-generated method stub
+		for (GroupOffer groupOffer : groupOfferList) {
+			for (char sku : groupOffer.getSkus()) {
+				
+			}
+		}
 		return 0;
 	}
 
@@ -273,6 +277,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
