@@ -19,6 +19,12 @@ public class SumSolutionTest {
     public void compute_sum() {
         assertThat(sum.compute(1, 1), equalTo(2));
     }
+    
+    @Test(expected = RuntimeException.class)
+    public void compute_sum_for_wrong_numbers() {
+    	sum.compute(2, 101);
+    }
 }
+
 
 
