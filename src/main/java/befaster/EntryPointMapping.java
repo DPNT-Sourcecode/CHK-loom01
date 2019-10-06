@@ -66,5 +66,3 @@ class EntryPointMapping {
         return checkoutSolution.checkout(p.get(0).getAsString());
     }
 }
-
-

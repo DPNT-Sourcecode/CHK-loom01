@@ -30,7 +30,3 @@ public class SumSolutionTest {
     	sum.compute(2, -5);
     }
 }
-
-
-
-
