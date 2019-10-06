@@ -66,8 +66,9 @@ public class CheckoutSolution {
     
     private int getPriceForItem(char sku, int noOfItems, int sum) {
     	if (specialOffersMap.containsKey(sku)) {
-    		int specialOfferCount = specialOffersMap.get(sku).getCount();
-    		int specialOfferPrice = specialOffersMap.get(sku).getPrice();
+    		CountToPrice offerToApply = getOfferToApply(noOfItems, specialOffersMap.get(sku));
+    		int specialOfferCount = offerToApply.getCount();
+    		int specialOfferPrice = offerToApply.getPrice();
 			
     		if (noOfItems >= specialOfferCount) {
 				return getPriceForItem(sku, noOfItems - specialOfferCount, sum + specialOfferPrice);
@@ -115,6 +116,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
