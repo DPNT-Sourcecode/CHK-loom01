@@ -1,12 +1,15 @@
 package befaster.solutions.CHK;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CheckoutSolution {
 	
 	private Map<Character, Integer> itemsPriceMap = new HashMap<>();
-	private Map<Character, CountToPrice> specialOffersMap = new HashMap<>();
+	private Map<Character, List<CountToPrice>> specialOffersMap = new HashMap<>();
 	
 	public CheckoutSolution() {
 		itemsPriceMap.put('A', 50);
@@ -14,7 +17,8 @@ public class CheckoutSolution {
 		itemsPriceMap.put('C', 20);
 		itemsPriceMap.put('D', 15);
 		
-		specialOffersMap.put('A', new CountToPrice(3, 130));
+		specialOffersMap.put('A',
+				Arrays.asList([new CountToPrice(3, 130), new CountToPrice(5, 200)]);
 		specialOffersMap.put('B', new CountToPrice(2, 45));
 	}
 	
@@ -93,3 +97,4 @@ public class CheckoutSolution {
 		}
     }
 }
+
