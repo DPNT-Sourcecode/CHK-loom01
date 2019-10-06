@@ -74,7 +74,9 @@ public class CheckoutSolution {
     	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
     		if (specialOffersFreeItemsMap.containsKey(skuToCount.getKey())) {
     			CountToSku freeItem = specialOffersFreeItemsMap.get(skuToCount.getKey());
-    			skusToCountMap.put(freeItem.sku, skusToCountMap.get(freeItem.sku) - 1);
+    			if (skuToCount.getValue() >= freeItem.count) {
+    				skusToCountMap.put(freeItem.sku, skusToCountMap.get(freeItem.sku) - 1);
+    			}
     		}
     	}
     }
@@ -157,5 +159,6 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
