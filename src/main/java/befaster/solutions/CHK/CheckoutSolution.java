@@ -67,6 +67,17 @@ public class CheckoutSolution {
     	return skusToCountMap;
     }
     
+    private Map<Character, Integer> eliminateFreeItems(Map<Character, Integer> skusToCountMap) {
+    	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
+    		if (specialOffersFreeItemsMap.containsKey(skuToCount.getKey())) {
+    			CountToSku freeItem = specialOffersFreeItemsMap.get(skuToCount.getKey());
+    			skusToCountMap.get(sku)
+    		}
+    	}
+    	
+    	return skusToCountMap;
+    }
+    
     private int getPriceForItem(char sku, int noOfItems, int sum) {
     	if (specialOffersMap.containsKey(sku)) {
     		CountToPrice offerToApply = getOfferToApply(noOfItems, specialOffersMap.get(sku));
@@ -145,3 +156,4 @@ public class CheckoutSolution {
 		}
     }
 }
+
