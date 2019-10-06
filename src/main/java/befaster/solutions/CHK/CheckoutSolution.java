@@ -99,7 +99,11 @@ public class CheckoutSolution {
     	eliminateFreeItems(skusToCountMap);
     	
     	int checkoutSum = 0;
-    	checkoutSum += computeGroupOffers(skusToCountMap);
+    	
+    	for (GroupOffer groupOffer : groupOfferList) {
+	    	Map<Character, Integer> productsCopyMap = new HashMap<>(skusToCountMap);
+	    	checkoutSum += computeGroupOffers(skusToCountMap);
+    	}
     	
     	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
     		checkoutSum += getPriceForItem(skuToCount.getKey(), skuToCount.getValue(), 0);
@@ -108,29 +112,24 @@ public class CheckoutSolution {
     	return checkoutSum;
     }
     
-    private int computeGroupOffers(Map<Character, Integer> skusToCountMap) {
-    	int sum = 0;
-    	
-    	Map<Character, Integer> productsCopyMap = new HashMap<>(skusToCountMap);
-		for (GroupOffer groupOffer : groupOfferList) {
-			int totalCountOfProducts = 0;
-			for (char sku : groupOffer.getSkus()) {
-				if (totalCountOfProducts == groupOffer.count) {
-					sum += groupOffer.price;
-					skusToCountMap = productsCopyMap;
-					break;
-				}
-				
-				if (productsCopyMap.get(sku) > 0) {
-					int countOfProductInOffer =
-							productsCopyMap.get(sku) <= groupOffer.count - totalCountOfProducts 
-							? productsCopyMap.get(sku) : groupOffer.count - totalCountOfProducts;
-					productsCopyMap.put(sku, productsCopyMap.get(sku) - countOfProductInOffer);
-					totalCountOfProducts += countOfProductInOffer;
-				}
+    private boolean doesApplyGroupOffer(Map<Character, Integer> skusToCountMap, GroupOffer groupOffer) {
+		int totalCountOfProducts = 0;
+		for (char sku : groupOffer.getSkus()) {
+			if (totalCountOfProducts == groupOffer.count) {
+				skusToCountMap = productsCopyMap;
+				return true;
+			}
+			
+			if (productsCopyMap.get(sku) > 0) {
+				int countOfProductInOffer =
+						productsCopyMap.get(sku) <= groupOffer.count - totalCountOfProducts 
+						? productsCopyMap.get(sku) : groupOffer.count - totalCountOfProducts;
+				productsCopyMap.put(sku, productsCopyMap.get(sku) - countOfProductInOffer);
+				totalCountOfProducts += countOfProductInOffer;
 			}
 		}
-		return sum;
+		
+		return false;
 	}
 
 	private Map<Character, Integer> groupSkusByCount(char[] itemSkus) throws Exception {
@@ -293,5 +292,6 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
