@@ -16,8 +16,9 @@ public class SumSolutionTest {
     }
 
     @Test
-    public void compute_sum() throws Exception {
+    public void compute_sum() {
         assertThat(sum.compute(1, 1), equalTo(2));
     }
 }
+
 
