@@ -111,9 +111,12 @@ public class CheckoutSolution {
     private int computeGroupOffers(Map<Character, Integer> skusToCountMap) {
     	Map<Character, Integer> productsCopyMap = new HashMap<>(skusToCountMap);
 		for (GroupOffer groupOffer : groupOfferList) {
+			int totalCountOfProducts = 0;
 			for (char sku : groupOffer.getSkus()) {
 				if (productsCopyMap.get(sku) > 0) {
-					productsCopyMap.put(sku, value);
+					int countOfProductInOffer =
+							productsCopyMap.get(sku) <= groupOffer.count ? productsCopyMap.get(sku) : groupOffer.count;
+					productsCopyMap.put(sku, productsCopyMap.get(sku) - countOfProductInOffer);
 				}
 			}
 		}
@@ -280,9 +283,3 @@ public class CheckoutSolution {
 		}
     }
 }
-
-
-
-
-
-
