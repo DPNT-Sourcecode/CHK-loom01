@@ -21,10 +21,16 @@ public class SumSolutionTest {
     }
     
     @Test(expected = RuntimeException.class)
-    public void compute_sum_for_wrong_numbers() {
-    	sum.compute(2, 101);
+    public void compute_sum_for_wrong_first_number() {
+    	sum.compute(101, 10);
+    }
+    
+    @Test(expected = RuntimeException.class)
+    public void compute_sum_for_wrong_second_number() {
+    	sum.compute(2, -5);
     }
 }
+
 
 
 
