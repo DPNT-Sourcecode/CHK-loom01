@@ -28,6 +28,7 @@ public class CheckoutSolution {
 		specialOffersMap.put('B', specialOffersList);
 		
 		specialOffersFreeItemsMap.put('E', new CountToSku(2, 'B'));
+		specialOffersFreeItemsMap.put('F', new CountToSku(2, 'F'));
 	}
 	
     public Integer checkout(String skus) {
@@ -74,6 +75,9 @@ public class CheckoutSolution {
     			CountToSku freeItem = specialOffersFreeItemsMap.get(item.getKey());
     			
     			if (items.containsKey(freeItem.sku)) {
+    				if (freeItem.sku == item.getKey()) {
+    					
+    				}
     				items.put(freeItem.sku, items.get(freeItem.sku) - item.getValue() / freeItem.count);
     			}
     		}
@@ -158,6 +162,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
