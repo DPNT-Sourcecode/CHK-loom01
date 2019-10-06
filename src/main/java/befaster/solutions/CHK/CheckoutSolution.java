@@ -52,20 +52,24 @@ public class CheckoutSolution {
 		itemsPriceMap.put('F', 10);
 		itemsPriceMap.put('G', 20);
 		itemsPriceMap.put('H', 10);
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
-		itemsPriceMap.put('', );
+		itemsPriceMap.put('I', 35);
+		itemsPriceMap.put('J', 60);
+		itemsPriceMap.put('K', 80);
+		itemsPriceMap.put('L', 90);
+		itemsPriceMap.put('M', 15);
+		itemsPriceMap.put('N', 40);
+		itemsPriceMap.put('O', 10);
+		itemsPriceMap.put('P', 50);
+		itemsPriceMap.put('Q', 30);
+		itemsPriceMap.put('R', 50);
+		itemsPriceMap.put('S', 30);
+		itemsPriceMap.put('T', 20);
+		itemsPriceMap.put('U', 40);
+		itemsPriceMap.put('V', 50);
+		itemsPriceMap.put('W', 20);
+		itemsPriceMap.put('X', 90);
+		itemsPriceMap.put('Y', 10);
+		itemsPriceMap.put('Z', 50);
 		
 		List<CountToPrice> specialOffersList = new ArrayList<>();
 		specialOffersList.add(new CountToPrice(3, 130)); 
@@ -75,6 +79,15 @@ public class CheckoutSolution {
 		specialOffersList = new ArrayList<>();
 		specialOffersList.add(new CountToPrice(2, 45)); 
 		specialOffersMap.put('B', specialOffersList);
+		
+		specialOffersList = new ArrayList<>();
+		specialOffersList.add(new CountToPrice(5, 45)); 
+		specialOffersList.add(new CountToPrice(10, 80)); 
+		specialOffersMap.put('H', specialOffersList);
+		
+		specialOffersList = new ArrayList<>();
+		specialOffersList.add(new CountToPrice(2, 150)); 
+		specialOffersMap.put('K', specialOffersList);
 		
 		specialOffersFreeItemsMap.put('E', new CountToSku(2, 'B'));
 		specialOffersFreeItemsMap.put('F', new CountToSku(2, 'F'));
@@ -224,6 +237,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
