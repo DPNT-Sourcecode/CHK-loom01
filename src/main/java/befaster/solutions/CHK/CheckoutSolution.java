@@ -130,7 +130,7 @@ public class CheckoutSolution {
 				}
 			}
 		}
-		return 0;
+		return sum;
 	}
 
 	private Map<Character, Integer> groupSkusByCount(char[] itemSkus) throws Exception {
@@ -293,4 +293,5 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
