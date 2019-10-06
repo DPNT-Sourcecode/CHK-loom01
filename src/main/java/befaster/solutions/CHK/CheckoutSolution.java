@@ -124,7 +124,8 @@ public class CheckoutSolution {
 								skusToCountMap.get(sku) - groupOffer.count - totalCountOfProductsApplied
 								: groupOffer.count - totalCountOfProductsApplied - skusToCountMap.get(sku);
 
-				kusToCountMap.put(sku,
+				skusToCountMap.put(sku, skusToCountMap.get(sku) - countToApply);
+				totalCountOfProductsApplied += countToApply;
 			}
 		}
 		
@@ -303,3 +304,4 @@ public class CheckoutSolution {
 		}
     }
 }
+
