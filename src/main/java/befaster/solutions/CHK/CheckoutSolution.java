@@ -100,9 +100,13 @@ public class CheckoutSolution {
     	
     	int checkoutSum = 0;
     	
+    	/* try to apply group offers */
     	for (GroupOffer groupOffer : groupOfferList) {
 	    	Map<Character, Integer> productsCopyMap = new HashMap<>(skusToCountMap);
-	    	checkoutSum += computeGroupOffers(skusToCountMap);
+	    	if (doesApplyGroupOffer(productsCopyMap, groupOffer)) {
+	    		checkoutSum += groupOffer.getPrice();
+	    		skusToCountMap = new HashMap<>(productsCopyMap);
+	    	}
     	}
     	
     	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
@@ -112,11 +116,10 @@ public class CheckoutSolution {
     	return checkoutSum;
     }
     
-    private boolean doesApplyGroupOffer(Map<Character, Integer> skusToCountMap, GroupOffer groupOffer) {
+    private boolean doesApplyGroupOffer(Map<Character, Integer> productsCopyMap, GroupOffer groupOffer) {
 		int totalCountOfProducts = 0;
 		for (char sku : groupOffer.getSkus()) {
 			if (totalCountOfProducts == groupOffer.count) {
-				skusToCountMap = productsCopyMap;
 				return true;
 			}
 			
@@ -292,6 +295,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
