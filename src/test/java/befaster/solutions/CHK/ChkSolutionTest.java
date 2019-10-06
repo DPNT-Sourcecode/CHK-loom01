@@ -48,6 +48,12 @@ public class ChkSolutionTest {
     public void checkout_with_free_item() {
         assertThat(checkoutSolution.checkout("ABBCDEE"), equalTo(195));
     }
+	
+	@Test
+    public void checkout_with_2_free_items() {
+        assertThat(checkoutSolution.checkout("ABBCDEEEE"), equalTo(245));
+    }
 }
+
 
 
