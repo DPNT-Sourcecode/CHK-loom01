@@ -18,6 +18,7 @@ public class CheckoutSolution {
 		itemsPriceMap.put('B', 30);
 		itemsPriceMap.put('C', 20);
 		itemsPriceMap.put('D', 15);
+		itemsPriceMap.put('E', 40);
 		
 		List<CountToPrice> specialOffersList = new ArrayList<>();
 		specialOffersList.add(new CountToPrice(3, 130)); 
@@ -40,6 +41,8 @@ public class CheckoutSolution {
     	} catch (Exception e) {
     		return -1;
     	}
+    	
+    	eliminateFreeItems(skusToCountMap);
     	
     	int checkoutSum = 0;
     	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
@@ -67,15 +70,13 @@ public class CheckoutSolution {
     	return skusToCountMap;
     }
     
-    private Map<Character, Integer> eliminateFreeItems(Map<Character, Integer> skusToCountMap) {
+    private void eliminateFreeItems(Map<Character, Integer> skusToCountMap) {
     	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
     		if (specialOffersFreeItemsMap.containsKey(skuToCount.getKey())) {
     			CountToSku freeItem = specialOffersFreeItemsMap.get(skuToCount.getKey());
-    			skusToCountMap.get(sku)
+    			skusToCountMap.put(freeItem.sku, skusToCountMap.get(freeItem.sku) - 1);
     		}
     	}
-    	
-    	return skusToCountMap;
     }
     
     private int getPriceForItem(char sku, int noOfItems, int sum) {
@@ -156,4 +157,5 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
