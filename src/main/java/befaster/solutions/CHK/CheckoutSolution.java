@@ -105,8 +105,8 @@ public class CheckoutSolution {
 		specialOffersFreeItemsMap.put('E', new CountToSku(2, 'B'));
 		specialOffersFreeItemsMap.put('F', new CountToSku(2, 'F'));
 		specialOffersFreeItemsMap.put('N', new CountToSku(3, 'M'));
-		specialOffersFreeItemsMap.put('3', new CountToSku(3, 'Q'));
-		specialOffersFreeItemsMap.put('3', new CountToSku(3, 'U'));
+		specialOffersFreeItemsMap.put('R', new CountToSku(3, 'Q'));
+		specialOffersFreeItemsMap.put('U', new CountToSku(3, 'U'));
 	}
 	
     public Integer checkout(String skus) {
@@ -253,6 +253,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
