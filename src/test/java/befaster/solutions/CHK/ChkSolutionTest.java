@@ -63,4 +63,10 @@ public class ChkSolutionTest {
     public void checkout_with_2_self_free_items() {
         assertThat(checkoutSolution.checkout("AFFFFFF"), equalTo(90));
     }
+	
+	@Test
+    public void checkout_with_group_offer() {
+        assertThat(checkoutSolution.checkout("STXYZ"), equalTo(90));
+    }
 }
+
