@@ -6,7 +6,7 @@ import java.util.Map;
 public class CheckoutSolution {
 	
 	private Map<Character, Integer> itemsPriceMap = new HashMap<>();
-	private Map<Character, Map<Integer, Integer>> specialOffersMap = new HashMap<>();
+	private Map<Character, CountToPrice> specialOffersMap = new HashMap<>();
 	
 	public CheckoutSolution() {
 		itemsPriceMap.put('A', 50);
@@ -14,13 +14,8 @@ public class CheckoutSolution {
 		itemsPriceMap.put('C', 20);
 		itemsPriceMap.put('D', 15);
 		
-		Map<Integer, Integer> noOfItemsToPriceMap = new HashMap<Integer, Integer>();
-		noOfItemsToPriceMap.put(3, 130);
-		specialOffersMap.put('A', noOfItemsToPriceMap);
-		
-		noOfItemsToPriceMap = new HashMap<Integer, Integer>();
-		noOfItemsToPriceMap.put(2, 45);
-		specialOffersMap.put('B', noOfItemsToPriceMap);
+		specialOffersMap.put('A', new CountToPrice(3, 130));
+		specialOffersMap.put('B', new CountToPrice(2, 45));
 	}
 	
     public Integer checkout(String skus) {
@@ -36,7 +31,9 @@ public class CheckoutSolution {
     	int checkoutSum = 0;
     	
     	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
-    		
+    		if (specialOffersMap.containsKey(skuToCount)) {
+    			
+    		}
     	}
     	
     	return checkoutSum;
@@ -59,5 +56,38 @@ public class CheckoutSolution {
     	
     	return skusToCountMap;
     }
+    
+    private int getPriceForItem(char sku, int noOfItems) {
+    	if (specialOffersMap.containsKey(sku)) {
+			if (noOfItems >= )
+		}
+    }
+    
+    public class CountToPrice {
+    	private int count;
+    	private int price;
+    	
+    	public CountToPrice(int count, int price) {
+    		this.count = count;
+    		this.price = price;
+    	}
+
+		public int getCount() {
+			return count;
+		}
+
+		public void setCount(int count) {
+			this.count = count;
+		}
+
+		public int getPrice() {
+			return price;
+		}
+
+		public void setPrice(int price) {
+			this.price = price;
+		}
+    }
 }
+
 
