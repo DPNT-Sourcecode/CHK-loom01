@@ -81,7 +81,7 @@ public class CheckoutSolution {
     private CountToPrice getOfferToApply(int noOfItems, List<CountToPrice> offers) {
     	CountToPrice offerToReturn = offers.get(0);
     	for (int i = 1; i < offers.size(); i++) {
-    		if (noOfItems < offers.get(i).count
+    		if (noOfItems >= offers.get(i).count
     				&& offerToReturn.count < offers.get(i).count) {
     			offerToReturn = offers.get(i);
     		}
@@ -116,6 +116,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
