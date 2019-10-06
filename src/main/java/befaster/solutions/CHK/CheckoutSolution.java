@@ -17,6 +17,7 @@ public class CheckoutSolution {
 		itemsPriceMap.put('C', 20);
 		itemsPriceMap.put('D', 15);
 		itemsPriceMap.put('E', 40);
+		itemsPriceMap.put('F', 10);
 		
 		List<CountToPrice> specialOffersList = new ArrayList<>();
 		specialOffersList.add(new CountToPrice(3, 130)); 
@@ -87,9 +88,14 @@ public class CheckoutSolution {
 			return item.getValue() / offer.count;
 		}
     	
+    	int itemsToEliminate = 0;
     	int itemCount = item.getValue();
+    	while (itemCount >= offer.count + 1) {
+    		itemsToEliminate += 1;
+    		itemCount -= (offer.count + 1);
+    	}
     	
-    	return 100;
+    	return itemsToEliminate;
     }
     
     private int getPriceForItem(char sku, int noOfItems, int sum) {
@@ -170,4 +176,5 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
