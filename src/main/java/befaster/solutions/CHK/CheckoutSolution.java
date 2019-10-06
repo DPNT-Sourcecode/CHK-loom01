@@ -75,10 +75,15 @@ public class CheckoutSolution {
     			CountToSku freeItem = specialOffersFreeItemsMap.get(item.getKey());
     			
     			if (items.containsKey(freeItem.sku)) {
+    				int itemsToEliminate = 0;
     				if (freeItem.sku == item.getKey()) {
     					
+    				} else {
+    					itemsToEliminate = item.getValue() / freeItem.count;
     				}
-    				items.put(freeItem.sku, items.get(freeItem.sku) - item.getValue() / freeItem.count);
+    				
+    				
+    				items.put(freeItem.sku, items.get(freeItem.sku) - itemsToEliminate);
     			}
     		}
     	}
@@ -162,10 +167,3 @@ public class CheckoutSolution {
 		}
     }
 }
-
-
-
-
-
-
-

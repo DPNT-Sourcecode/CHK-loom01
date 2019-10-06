@@ -54,6 +54,3 @@ public class ChkSolutionTest {
         assertThat(checkoutSolution.checkout("ABBCDEEEE"), equalTo(245));
     }
 }
-
-
-
