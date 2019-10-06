@@ -24,5 +24,3 @@ public class HloSolutionTest {
     	helloSolution.hello(null);
     }
 }
-
-
