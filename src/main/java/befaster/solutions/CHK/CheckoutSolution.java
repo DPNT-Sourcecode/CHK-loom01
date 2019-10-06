@@ -70,13 +70,11 @@ public class CheckoutSolution {
     	return skusToCountMap;
     }
     
-    private void eliminateFreeItems(Map<Character, Integer> skusToCountMap) {
-    	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
-    		if (specialOffersFreeItemsMap.containsKey(skuToCount.getKey())) {
-    			CountToSku freeItem = specialOffersFreeItemsMap.get(skuToCount.getKey());
-    			if (skuToCount.getValue() >= freeItem.count) {
-    				skusToCountMap.put(freeItem.sku, skusToCountMap.get(freeItem.sku) - 1);
-    			}
+    private void eliminateFreeItems(Map<Character, Integer> items) {
+    	for (Map.Entry<Character, Integer> item : items.entrySet()) {
+    		if (specialOffersFreeItemsMap.containsKey(item.getKey())) {
+    			CountToSku freeItem = specialOffersFreeItemsMap.get(item.getKey());
+    			items.put(freeItem.sku, items.get(freeItem.sku) - item.getValue() / freeItem.count);
     		}
     	}
     }
@@ -159,6 +157,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
