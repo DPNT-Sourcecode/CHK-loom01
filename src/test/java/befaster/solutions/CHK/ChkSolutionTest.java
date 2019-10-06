@@ -73,4 +73,10 @@ public class ChkSolutionTest {
     public void checkout_with_test_from_framework() {
         assertThat(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVW"), equalTo(795));
     }
+	
+	@Test
+    public void checkout_with_test_from_framework_2() {
+        assertThat(checkoutSolution.checkout("ZZZ"), equalTo(45));
+    }
 }
+
