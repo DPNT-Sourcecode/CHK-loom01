@@ -25,8 +25,16 @@ public class CheckoutSolution {
 	
     public Integer checkout(String skus) {
     	char[] skusArray = skus.toCharArray();
+    	
+    	for (char skuChar : skusArray) {
+    		String sku = Character.toString(skuChar);
+    		if (!itemsPriceMap.containsKey(sku)) {
+    			return -1;
+    		}
+    	}
     }
 }
+
 
 
 
