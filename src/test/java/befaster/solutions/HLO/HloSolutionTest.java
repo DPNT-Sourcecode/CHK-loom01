@@ -18,5 +18,11 @@ public class HloSolutionTest {
     public void get_hello() {
         assertThat(helloSolution.hello("Tom"), equalTo("Hello, Tom!"));
     }
+	
+	 @Test(expected = RuntimeException.class)
+    public void get_hello_for_wrong_input() {
+    	helloSolution.hello(null);
+    }
 }
+
 
