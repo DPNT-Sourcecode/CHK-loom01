@@ -57,9 +57,13 @@ public class CheckoutSolution {
     	return skusToCountMap;
     }
     
-    private int getPriceForItem(char sku, int noOfItems) {
+    private int getPriceForItem(char sku, int noOfItems, int sum) {
     	if (specialOffersMap.containsKey(sku)) {
-			if (noOfItems >= )
+    		int specialOfferCount = specialOffersMap.get(sku).getCount();
+    		int specialOfferPrice = specialOffersMap.get(sku).getCount();
+			if (noOfItems >= specialOfferCount) {
+				return getPriceForItem(sku, noOfItems - specialOfferCount, sum + specialOfferPrice);
+			}
 		}
     }
     
@@ -89,5 +93,6 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
