@@ -11,7 +11,7 @@ public class CheckoutSolution {
 	
 	private Map<Character, Integer> itemsPriceMap = new HashMap<>();
 	private Map<Character, List<CountToPrice>> specialOffersMap = new HashMap<>();
-	private Map<Character, >
+	private Map<Character, CountToSku> specialOffersFreeItemsMap = new HashMap<>();
 	
 	public CheckoutSolution() {
 		itemsPriceMap.put('A', 50);
@@ -27,6 +27,8 @@ public class CheckoutSolution {
 		specialOffersList = new ArrayList<>();
 		specialOffersList.add(new CountToPrice(2, 45)); 
 		specialOffersMap.put('B', specialOffersList);
+		
+		specialOffersFreeItemsMap.put('E', new CountToSku(2, 'B'));
 	}
 	
     public Integer checkout(String skus) {
@@ -143,11 +145,3 @@ public class CheckoutSolution {
 		}
     }
 }
-
-
-
-
-
-
-
-
