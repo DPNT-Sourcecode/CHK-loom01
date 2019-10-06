@@ -68,7 +68,13 @@ public class ChkSolutionTest {
     public void checkout_with_group_offer() {
         assertThat(checkoutSolution.checkout("STXYZ"), equalTo(86));
     }
+	
+	@Test
+    public void checkout_with_test_from_framework() {
+        assertThat(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVW"), equalTo(795));
+    }
 }
+
 
 
 

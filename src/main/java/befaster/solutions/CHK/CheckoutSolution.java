@@ -23,7 +23,7 @@ public class CheckoutSolution {
 		itemsPriceMap.put('H', 10);
 		itemsPriceMap.put('I', 35);
 		itemsPriceMap.put('J', 60);
-		itemsPriceMap.put('K', 80);
+		itemsPriceMap.put('K', 70);
 		itemsPriceMap.put('L', 90);
 		itemsPriceMap.put('M', 15);
 		itemsPriceMap.put('N', 40);
@@ -310,6 +310,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
