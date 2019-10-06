@@ -31,14 +31,14 @@ public class CheckoutSolution {
 		itemsPriceMap.put('P', 50);
 		itemsPriceMap.put('Q', 30);
 		itemsPriceMap.put('R', 50);
-		itemsPriceMap.put('S', 30);
+		itemsPriceMap.put('S', 20);
 		itemsPriceMap.put('T', 20);
 		itemsPriceMap.put('U', 40);
 		itemsPriceMap.put('V', 50);
 		itemsPriceMap.put('W', 20);
-		itemsPriceMap.put('X', 90);
-		itemsPriceMap.put('Y', 10);
-		itemsPriceMap.put('Z', 50);
+		itemsPriceMap.put('X', 17);
+		itemsPriceMap.put('Y', 20);
+		itemsPriceMap.put('Z', 21);
 		
 		List<CountToPrice> specialOffersList = new ArrayList<>();
 		specialOffersList.add(new CountToPrice(3, 130)); 
@@ -310,6 +310,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
