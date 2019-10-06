@@ -13,11 +13,16 @@ public class CheckoutSolution {
 		itemsPriceMap.put("B", 30);
 		itemsPriceMap.put("C", 20);
 		itemsPriceMap.put("D", 15);
+		
+		Map<Integer, Integer> noOfItemsToPriceMap = new HashMap<Integer, Integer>();
+		noOfItemsToPriceMap.put(3, 130);
+		specialOffersMap.put("A", noOfItemsToPriceMap);
 	}
 	
     public Integer checkout(String skus) {
         
     }
 }
+
 
 
