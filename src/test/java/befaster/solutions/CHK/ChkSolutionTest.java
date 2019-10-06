@@ -33,4 +33,15 @@ public class ChkSolutionTest {
     public void checkout_with_wrong_input() {
         assertThat(checkoutSolution.checkout("AAAABEBBCD"), equalTo(-1));
     }
+	
+	@Test
+    public void checkout_with_special_offer_for_A_and_B_2() {
+        assertThat(checkoutSolution.checkout("AAAAAAAABBBCD"), equalTo(440));
+    }
+	
+	@Test
+    public void checkout_with_special_offer_for_A_2() {
+        assertThat(checkoutSolution.checkout("AAAAABCD"), equalTo(265));
+    }
 }
+
