@@ -17,12 +17,17 @@ public class CheckoutSolution {
 		Map<Integer, Integer> noOfItemsToPriceMap = new HashMap<Integer, Integer>();
 		noOfItemsToPriceMap.put(3, 130);
 		specialOffersMap.put("A", noOfItemsToPriceMap);
+		
+		noOfItemsToPriceMap = new HashMap<Integer, Integer>();
+		noOfItemsToPriceMap.put(2, 45);
+		specialOffersMap.put("B", noOfItemsToPriceMap);
 	}
 	
     public Integer checkout(String skus) {
-        
+    	char[] skusArray = skus.toCharArray();
     }
 }
+
 
 
 
