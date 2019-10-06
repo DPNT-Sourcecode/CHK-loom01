@@ -104,7 +104,7 @@ public class CheckoutSolution {
     	for (GroupOffer groupOffer : groupOfferList) {
 	    	if (doesApplyGroupOffer(skusToCountMap, groupOffer)) {
 	    		checkoutSum += groupOffer.getPrice();
-	    		//applyGroupOffer(skusToCountMap, groupOffer);
+	    		applyGroupOffer(skusToCountMap, groupOffer);
 	    	}
     	}
     	
@@ -131,14 +131,16 @@ public class CheckoutSolution {
 		
 	}
 
-	private boolean doesApplyGroupOffer(Map<Character, Integer> productsCopyMap, GroupOffer groupOffer) {
+	private boolean doesApplyGroupOffer(Map<Character, Integer> productsMap, GroupOffer groupOffer) {
 		int totalCountOfProducts = 0;
 		for (char sku : groupOffer.getSkus()) {
 			if (totalCountOfProducts >= groupOffer.count) {
 				return true;
 			}
 			
-			totalCountOfProducts += productsCopyMap.get(sku);
+			if (productsMap.containsKey(sku)) {
+				totalCountOfProducts += productsMap.get(sku);
+			}
 		}
 		
 		return false;
@@ -304,5 +306,6 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
