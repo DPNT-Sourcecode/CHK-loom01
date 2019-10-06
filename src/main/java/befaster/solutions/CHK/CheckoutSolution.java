@@ -10,6 +10,7 @@ public class CheckoutSolution {
 	private Map<Character, Integer> itemsPriceMap = new HashMap<>();
 	private Map<Character, List<CountToPrice>> specialOffersMap = new HashMap<>();
 	private Map<Character, CountToSku> specialOffersFreeItemsMap = new HashMap<>();
+	private Map<Character, GroupOffer> groupOfferMap = new HashMap<>();
 	
 	public CheckoutSolution() {
 		itemsPriceMap.put('A', 50);
@@ -75,6 +76,8 @@ public class CheckoutSolution {
 		specialOffersFreeItemsMap.put('N', new CountToSku(3, 'M'));
 		specialOffersFreeItemsMap.put('R', new CountToSku(3, 'Q'));
 		specialOffersFreeItemsMap.put('U', new CountToSku(3, 'U'));
+		
+		
 	}
 	
     public Integer checkout(String skus) {
@@ -220,5 +223,42 @@ public class CheckoutSolution {
 			this.sku = sku;
 		}
     }
+    
+    public class GroupOffer {
+    	private int count;
+    	private List<Character> skus;
+    	private int price;
+    	
+    	public GroupOffer(int count, int price, List<Character> skus) {
+    		this.count = count;
+    		this.setSkus(skus);
+    		this.price = price;
+    	}
+
+		public int getCount() {
+			return count;
+		}
+
+		public void setCount(int count) {
+			this.count = count;
+		}
+
+		public int getPrice() {
+			return price;
+		}
+
+		public void setPrice(int price) {
+			this.price = price;
+		}
+
+		public List<Character> getSkus() {
+			return skus;
+		}
+
+		public void setSkus(List<Character> skus) {
+			this.skus = skus;
+		}
+    }
 }
+
 
