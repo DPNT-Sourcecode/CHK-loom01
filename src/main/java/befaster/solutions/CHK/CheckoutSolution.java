@@ -77,6 +77,10 @@ public class CheckoutSolution {
     	return sum + noOfItems * itemsPriceMap.get(sku);
     }
     
+    private CountToPrice getOfferToApply(int noOfItems, List<CountToPrice> offers) {
+    	
+    }
+    
     public class CountToPrice {
     	private int count;
     	private int price;
@@ -103,5 +107,6 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
