@@ -55,7 +55,7 @@ public class CheckoutSolution {
 		specialOffersMap.put('H', specialOffersList);
 		
 		specialOffersList = new ArrayList<>();
-		specialOffersList.add(new CountToPrice(2, 150)); 
+		specialOffersList.add(new CountToPrice(2, 120)); 
 		specialOffersMap.put('K', specialOffersList);
 		
 		specialOffersList = new ArrayList<>();
@@ -310,12 +310,3 @@ public class CheckoutSolution {
 		}
     }
 }
-
-
-
-
-
-
-
-
-
