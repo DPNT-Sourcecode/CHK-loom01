@@ -79,7 +79,11 @@ public class CheckoutSolution {
 		
 		List<Character> groupOfferSkus = new ArrayList<>();
 		groupOfferSkus.add('S');
-		groupOfferMap.put('S', new GroupOffer(3, 45, new ))
+		groupOfferSkus.add('T');
+		groupOfferSkus.add('X');
+		groupOfferSkus.add('Y');
+		groupOfferSkus.add('Z');
+		groupOfferList.add(new GroupOffer(3, 45, groupOfferSkus));
 	}
 	
     public Integer checkout(String skus) {
@@ -95,6 +99,8 @@ public class CheckoutSolution {
     	eliminateFreeItems(skusToCountMap);
     	
     	int checkoutSum = 0;
+    	checkoutSum += computeGroupOffers(skusToCountMap);
+    	
     	for (Map.Entry<Character, Integer> skuToCount : skusToCountMap.entrySet()) {
     		checkoutSum += getPriceForItem(skuToCount.getKey(), skuToCount.getValue(), 0);
     	}
@@ -102,7 +108,12 @@ public class CheckoutSolution {
     	return checkoutSum;
     }
     
-    private Map<Character, Integer> groupSkusByCount(char[] itemSkus) throws Exception {
+    private int computeGroupOffers(Map<Character, Integer> skusToCountMap) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private Map<Character, Integer> groupSkusByCount(char[] itemSkus) throws Exception {
     	Map<Character, Integer> skusToCountMap = new HashMap<>();
     	
     	for (char sku : itemSkus) {
@@ -262,6 +273,7 @@ public class CheckoutSolution {
 		}
     }
 }
+
 
 
 
