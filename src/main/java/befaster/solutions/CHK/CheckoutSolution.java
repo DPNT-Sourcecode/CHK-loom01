@@ -28,12 +28,20 @@ public class CheckoutSolution {
     	
     	for (char skuChar : skusArray) {
     		String sku = Character.toString(skuChar);
+    		
     		if (!itemsPriceMap.containsKey(sku)) {
     			return -1;
     		}
+    		
+    		
     	}
     }
+    
+    private Map<Character, Integer> groupItems(char[] itemSkus) {
+    	
+    }
 }
+
 
 
 
