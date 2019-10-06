@@ -38,7 +38,7 @@ class EntryPointMapping {
         checkoutSolution = new CheckoutSolution();
     }
 
-    Object sum(List<JsonElement> p) {
+    Object sum(List<JsonElement> p) throws Exception {
         return sumSolution.compute(p.get(0).getAsInt(), p.get(1).getAsInt());
     }
 
@@ -66,3 +66,4 @@ class EntryPointMapping {
         return checkoutSolution.checkout(p.get(0).getAsString());
     }
 }
+
