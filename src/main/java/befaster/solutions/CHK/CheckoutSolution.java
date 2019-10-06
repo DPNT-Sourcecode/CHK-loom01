@@ -147,6 +147,10 @@ public class CheckoutSolution {
 			}
 		}
 		
+		if (totalCountOfProducts >= groupOffer.count) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -310,3 +314,4 @@ public class CheckoutSolution {
 		}
     }
 }
+
