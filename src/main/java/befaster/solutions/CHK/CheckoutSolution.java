@@ -78,11 +78,11 @@ public class CheckoutSolution {
 		specialOffersFreeItemsMap.put('U', new CountToSku(3, 'U'));
 		
 		List<Character> groupOfferSkus = new ArrayList<>();
+		groupOfferSkus.add('Z');
 		groupOfferSkus.add('S');
 		groupOfferSkus.add('T');
-		groupOfferSkus.add('X');
 		groupOfferSkus.add('Y');
-		groupOfferSkus.add('Z');
+		groupOfferSkus.add('X');
 		groupOfferList.add(new GroupOffer(3, 45, groupOfferSkus));
 	}
 	
@@ -314,3 +314,4 @@ public class CheckoutSolution {
 		}
     }
 }
+
