@@ -66,7 +66,7 @@ public class ChkSolutionTest {
 	
 	@Test
     public void checkout_with_group_offer() {
-        assertThat(checkoutSolution.checkout("STXYZ"), equalTo(86));
+        assertThat(checkoutSolution.checkout("STXYZ"), equalTo(83));
     }
 	
 	@Test
@@ -94,5 +94,3 @@ public class ChkSolutionTest {
         assertThat(checkoutSolution.checkout("ZZZS"), equalTo(65));
     }
 }
-
-
